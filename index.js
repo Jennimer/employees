@@ -12,7 +12,7 @@ const mongoURL = 'mongodb+srv://jennimerisalo2:nqbyb9TErC1Inal0@orderdatabase.jt
 mongoose.connect(mongoURL, { useNewUrlParser: true , useUnifiedTopology: true})
 .then(() => {
     console.log('connected to MongoDB')
-    app.listen(3000, ()=> {
+    app.listen(process.env.PORT || 3000, ()=> {
         console.log(`Node API app is running on port 3000`)
     });
 }).catch((error) => {
