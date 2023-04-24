@@ -18,7 +18,7 @@ I tested it with Postman, I don't know, how you know I actually did it, but here
 
 
 #Render
-You can find it also at Render
+You can find it also on Render
 
 https://employeesicecreamfactory.onrender.com
 
