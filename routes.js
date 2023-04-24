@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
 })
 
 // Fetch all employees
-router.get("/employees", async (req, res) => {
+router.get("/employees/getall", async (req, res) => {
   try {
     const employees = await Employee.find();
     res.send(employees)
@@ -31,7 +31,7 @@ router.get('/employees/:id', async(req, res) =>{
     }
 })
 // Add epmloyees
-router.post("/employees", async (req, res) => {
+router.post("/employees/add", async (req, res) => {
     const employee = new Employee({
         firstname: req.body.firstname,
         lastname: req.body.lastname,
@@ -48,7 +48,7 @@ router.post("/employees", async (req, res) => {
     }
   })
   // Delete employees by id
-router.delete('/employees/:id', async(req, res) =>{
+router.delete('/employees/delete/:id', async(req, res) =>{
     try {
         const {id} = req.params;
         const product = await Employee.findByIdAndDelete(id);
@@ -62,7 +62,7 @@ router.delete('/employees/:id', async(req, res) =>{
     }
 })
 // Update movie by id
-router.put("/employees/:id", async (req, res) => {
+router.put("/employees/update/:id", async (req, res) => {
     await Employee.findOneAndUpdate({ _id: req.params.id }, req.body, {new: true}, (err, result) => { 
       if (err){ 
         return res.status(500).json({ message: err.message });
