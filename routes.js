@@ -2,6 +2,15 @@ const express = require('express');
 const router = express.Router();
 const Employee = require('./models/employees');
 
+// Welcome page
+router.get("/", async (req, res) => {
+  try {
+    res.send("Welcome to Icecream Factory employees register!")
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+})
+
 // Fetch all employees
 router.get("/employees", async (req, res) => {
   try {
