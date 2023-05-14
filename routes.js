@@ -61,7 +61,7 @@ router.delete('/employees/delete/:id', async(req, res) =>{
         res.status(500).json({message: error.message})
     }
 })
-// Update movie by id
+// Update emploees by id
 router.put("/employees/update/:id", async (req, res) => {
     await Employee.findOneAndUpdate({ _id: req.params.id }, req.body, {new: true}, (err, result) => { 
       if (err){ 
