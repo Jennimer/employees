@@ -24,7 +24,7 @@ router.get("/employees/getall", async (req, res) => {
 router.get('/employees/:id', async(req, res) =>{
     try {
         const {id} = req.params;
-        const product = await Employee.findById(id);
+        const employee = await Employee.findById(id);
         res.status(200).json(Employee);
     } catch (error) {
         res.status(500).json({message: error.message})
@@ -51,7 +51,7 @@ router.post("/employees/add", async (req, res) => {
 router.delete('/employees/delete/:id', async(req, res) =>{
     try {
         const {id} = req.params;
-        const product = await Employee.findByIdAndDelete(id);
+        const Employee = await Employee.findByIdAndDelete(id);
         if(!Employee){
             return res.status(404).json({message: `cannot find any product with ID ${id}`})
         }
